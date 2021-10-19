@@ -1,0 +1,65 @@
+diff --git a/API/pom.xml b/API/pom.xml
+index 00973d9..a95c571 100644
+--- a/API/pom.xml
++++ b/API/pom.xml
+@@ -5,7 +5,7 @@
+ 	<parent>
+ 		<groupId>com.github.crawler-commons</groupId>
+ 		<artifactId>urlfrontier</artifactId>
+-		<version>1.1-SNAPSHOT</version>
++		<version>1.1</version>
+ 	</parent>
+ 
+ 	<name>urlfrontier-API</name>
+diff --git a/client/pom.xml b/client/pom.xml
+index 5cda133..805ecba 100644
+--- a/client/pom.xml
++++ b/client/pom.xml
+@@ -5,7 +5,7 @@
+ 	<parent>
+ 		<groupId>com.github.crawler-commons</groupId>
+ 		<artifactId>urlfrontier</artifactId>
+-		<version>1.1-SNAPSHOT</version>
++		<version>1.1</version>
+ 	</parent>
+ 
+ 	<name>urlfrontier-client</name>
+diff --git a/pom.xml b/pom.xml
+index ddbdead..d5493c0 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,7 +10,7 @@
+ 	<groupId>com.github.crawler-commons</groupId>
+ 	<artifactId>urlfrontier</artifactId>
+ 	<packaging>pom</packaging>
+-	<version>1.1-SNAPSHOT</version>
++	<version>1.1</version>
+ 	<name>urlfrontier</name>
+ 
+ 	<url>https://github.com/crawler-commons/url-frontier</url>
+diff --git a/service/pom.xml b/service/pom.xml
+index 85f1c44..5669091 100644
+--- a/service/pom.xml
++++ b/service/pom.xml
+@@ -6,7 +6,7 @@
+ 	<groupId>com.github.crawler-commons</groupId>
+ 	<artifactId>urlfrontier-service</artifactId>
+ 	<packaging>jar</packaging>
+-	<version>1.1-SNAPSHOT</version>
++	<version>1.1</version>
+ 
+ 	<description>Implementation of the URLFrontier Service</description>
+ 
+diff --git a/tests/pom.xml b/tests/pom.xml
+index ef16f2e..bdbcce9 100644
+--- a/tests/pom.xml
++++ b/tests/pom.xml
+@@ -5,7 +5,7 @@
+ 	<parent>
+ 		<groupId>com.github.crawler-commons</groupId>
+ 		<artifactId>urlfrontier</artifactId>
+-		<version>1.1-SNAPSHOT</version>
++		<version>1.1</version>
+ 	</parent>
+ 
+ 	<name>urlfrontier-test-suite</name>

@@ -1,0 +1,21 @@
+diff --git a/API/pom.xml b/API/pom.xml
+index 00973d9..d7eb58a 100644
+--- a/API/pom.xml
++++ b/API/pom.xml
+@@ -27,6 +27,16 @@
+ 			<version>6.0.53</version>
+ 			<scope>provided</scope>
+ 		</dependency>
++		<dependency>
++			<groupId>io.grpc</groupId>
++			<artifactId>grpc-core</artifactId>
++			<version>${grpc.version}</version>
++		</dependency>
++		<dependency>
++			<groupId>io.grpc</groupId>
++			<artifactId>grpc-api</artifactId>
++			<version>${grpc.version}</version>
++		</dependency>
+ 		<dependency>
+ 			<groupId>io.grpc</groupId>
+ 			<artifactId>grpc-netty-shaded</artifactId>

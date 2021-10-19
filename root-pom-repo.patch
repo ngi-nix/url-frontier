@@ -1,0 +1,19 @@
+diff --git a/pom.xml b/pom.xml
+index ddbdead..52c9ef8 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -27,14 +27,6 @@
+ 		<tag>HEAD</tag>
+ 	</scm>
+ 
+-	<distributionManagement>
+-		<repository>
+-			<id>sonatype-nexus-staging</id>
+-			<name>Nexus Staging Repository</name>
+-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+-		</repository>
+-	</distributionManagement>
+-
+ 	<issueManagement>
+ 		<system>GitHub Issues</system>
+ 		<url>https://github.com/crawler-commons/url-frontier/issues</url>
