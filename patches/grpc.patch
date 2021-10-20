@@ -14,7 +14,7 @@ index 00973d9..d7eb58a 100644
 +		<dependency>
 +			<groupId>io.grpc</groupId>
 +			<artifactId>grpc-api</artifactId>
-+			<version>${grpc.version}</version>
++			<version>[${grpc.version}]</version>
 +		</dependency>
  		<dependency>
  			<groupId>io.grpc</groupId>

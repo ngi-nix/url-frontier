@@ -29,7 +29,8 @@
         , nix-gitignore
         }:
           let
-            mavenRepository = buildMavenRepositoryFromLockFile { file = ./api-mvn2nix-lock.json; };
+            mavenRepository =
+              buildMavenRepositoryFromLockFile { file = ./mvn2nix-lock.json; };
           in
             stdenv.mkDerivation rec {
               pname = "api-url-frontier";
@@ -39,20 +40,27 @@
               #src = nix-gitignore.gitignoreSource [ "*.nix" ] ./.;
               src = url-frontier-src;
               patches = [
-                #./grpc.patch
-                ./snapshot.patch
-                #./root-pom-repo.patch
+                #./patches/grpc.patch
+                #./patches/snapshot.patch
               ];
 
-              nativeBuildInputs = [ jdk11_headless maven makeWrapper ];
+              nativeBuildInputs = [
+                jdk11_headless
+                maven
+                makeWrapper
+              ];
               # TODO: add the built API maven repo's path as offline repo source
               # for tests, client, services
+              #
+              #echo "Building with maven repository ${mavenRepository}"
               buildPhase = ''
-                echo "Building with maven repository ${mavenRepository}"
-                mvn --debug package --offline -Dmaven.repo.local=${mavenRepository}
-                #mvn --debug --update-snapshots package --offline -Dmaven.repo.local=${mavenRepository}
-                #mvn --debug --update-snapshots package -Dmaven.repo.local=${mavenRepository}
+
+                mvn --debug package
+                #mvn --debug package --offline -Dmaven.repo.local=/home/ajz/summer/url-frontier/mavenrepo
+
               '';
+              #mvn --debug --update-snapshots package --offline -Dmaven.repo.local=${mavenRepository}
+              #mvn --debug --update-snapshots package -Dmaven.repo.local=${mavenRepository}
 
               installPhase = ''
                 # create the bin directory
