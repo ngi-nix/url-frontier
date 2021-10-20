@@ -52,15 +52,10 @@
               # TODO: add the built API maven repo's path as offline repo source
               # for tests, client, services
               #
-              #echo "Building with maven repository ${mavenRepository}"
               buildPhase = ''
-
-                mvn --debug package
-                #mvn --debug package --offline -Dmaven.repo.local=/home/ajz/summer/url-frontier/mavenrepo
-
+                echo "Building with maven repository ${mavenRepository}"
+                mvn --debug package --offline -Dmaven.repo.local=${mavenRepository}
               '';
-              #mvn --debug --update-snapshots package --offline -Dmaven.repo.local=${mavenRepository}
-              #mvn --debug --update-snapshots package -Dmaven.repo.local=${mavenRepository}
 
               installPhase = ''
                 # create the bin directory
