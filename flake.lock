@@ -59,16 +59,17 @@
     "url-frontier-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1634553979,
-        "narHash": "sha256-LpXeUlNUc6GA+Q7sBfZ+iTYDW8J5hfa9TrxkrfHJ8z8=",
+        "lastModified": 1634553975,
+        "narHash": "sha256-6dra/n1lYnZ7JmnzSe5QXYRoxe1czz5Y/UsMG7wMtWE=",
         "owner": "crawler-commons",
         "repo": "url-frontier",
-        "rev": "73069fd7cdb907b83c5c321ca09d484eeaa98b12",
+        "rev": "daec31d4df4a0d1f906674ba3f2dd852121b55d1",
         "type": "github"
       },
       "original": {
         "owner": "crawler-commons",
         "repo": "url-frontier",
+        "rev": "daec31d4df4a0d1f906674ba3f2dd852121b55d1",
         "type": "github"
       }
     },

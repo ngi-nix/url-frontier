@@ -4,14 +4,16 @@
   inputs = {
     mvn2nix.url = "github:fzakaria/mvn2nix";
     utils.url = "github:numtide/flake-utils";
-    url-frontier-src.url = "github:crawler-commons/url-frontier";
+    # pinned to release 1.0
+    url-frontier-src.url =
+      "github:crawler-commons/url-frontier?rev=daec31d4df4a0d1f906674ba3f2dd852121b55d1";
     url-frontier-src.flake = false;
   };
 
   outputs = { nixpkgs, mvn2nix, utils, url-frontier-src, ... }:
     let
       overlay = final: prev: {
-        api-url-frontier = final.callPackage api-url-frontier {};
+        urlfrontier-API = final.callPackage urlfrontier-API {};
       };
 
       pkgsForSystem = system: import nixpkgs {
@@ -19,25 +21,22 @@
         inherit system;
       };
 
-      api-url-frontier =
+      urlfrontier-API =
         { lib
         , stdenv
         , buildMavenRepositoryFromLockFile
         , makeWrapper
         , maven
         , jdk11_headless
-        , nix-gitignore
         }:
           let
             mavenRepository =
               buildMavenRepositoryFromLockFile { file = ./mvn2nix-lock.json; };
           in
             stdenv.mkDerivation rec {
-              pname = "api-url-frontier";
-              # TODO: update version
-              version = "0.9.3";
+              pname = "urlfrontier-API";
+              version = "1.0";
               name = "${pname}-${version}";
-              #src = nix-gitignore.gitignoreSource [ "*.nix" ] ./.;
               src = url-frontier-src;
               patches = [
                 #./patches/grpc.patch
@@ -67,7 +66,7 @@
                 # copy out the JAR
                 # Maven already setup the classpath to use m2 repository layout
                 # with the prefix of lib/
-                cp target/${name}.jar $out/
+                cp API/target/${name}.jar $out/
 
                 # create a wrapper that will automatically set the classpath
                 # this should be the paths from the dependency derivation
@@ -82,11 +81,11 @@
           legacyPackages = pkgsForSystem system;
 
           packages = utils.lib.flattenTree {
-            inherit (legacyPackages) api-url-frontier;
+            inherit (legacyPackages) urlfrontier-API;
           };
 
           # TODO: replace with client when done
-          defaultPackage = packages.api-url-frontier;
+          defaultPackage = packages.urlfrontier-API;
 
           devShell = with legacyPackages; mkShell {
             nativeBuildInputs = [ maven ];
